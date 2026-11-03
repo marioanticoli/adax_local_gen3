@@ -1,7 +1,7 @@
 import logging
 from typing import Any
 
-import adax_local
+from . import adax_local
 import voluptuous as vol
 
 from homeassistant.config_entries import ConfigFlow, ConfigFlowResult

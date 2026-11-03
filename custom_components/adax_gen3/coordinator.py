@@ -1,7 +1,7 @@
 import logging
 from typing import Any, cast
 
-from adax_local import Adax as AdaxLocal
+from .adax_local import Adax as AdaxLocal
 
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_IP_ADDRESS, CONF_TOKEN
