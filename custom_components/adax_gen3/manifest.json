@@ -1,0 +1,14 @@
+{
+  "domain": "adax_gen3",
+  "name": "Adax Gen 3 Local",
+  "codeowners": ["@marioanticoli"],
+  "config_flow": true,
+  "dependencies": ["bluetooth"],
+  "documentation": "https://github.com/marioanticoli/adax_local_gen3",
+  "iot_class": "local_polling",
+  "requirements": [
+    "Adax-local @ git+https://github.com/Danielhiversen/pyAdaxLocal.git@main"
+  ],
+  "version": "0.1.0"
+}
+

@@ -1,0 +1,24 @@
+{
+  "config": {
+    "abort": {
+      "heater_not_available": "Heater is not available. Check its pairing mode.",
+      "heater_not_found": "No compatible Adax heater found. Check Bluetooth range and pairing mode.",
+      "invalid_auth": "Invalid Wi-Fi credentials.",
+      "already_configured": "This heater is already configured."
+    },
+    "error": {
+      "cannot_connect": "Unable to configure the heater."
+    },
+    "step": {
+      "user": {
+        "title": "Connect Adax Gen 3",
+        "description": "Put the heater into pairing mode by holding OK until the blue LED blinks. Home Assistant must be within Bluetooth range.",
+        "data": {
+          "wifi_ssid": "Wi-Fi SSID",
+          "wifi_password": "Wi-Fi password"
+        }
+      }
+    }
+  }
+}
+
