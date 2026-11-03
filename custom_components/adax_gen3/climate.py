@@ -52,7 +52,7 @@ class AdaxGen3Climate(
         | ClimateEntityFeature.TURN_ON
     )
     _attr_target_temperature_step = PRECISION_WHOLE
-    _attr_native_temperature_unit = UnitOfTemperature.CELSIUS
+    _attr_temperature_unit = UnitOfTemperature.CELSIUS
 
     def __init__(
         self,
@@ -73,7 +73,7 @@ class AdaxGen3Climate(
     ) -> None:
         if hvac_mode == HVACMode.HEAT:
             temperature = (
-                self._attr_native_target_temperature
+                self._attr_target_temperature
                 or self._attr_min_temp
             )
             await self.adax.set_target_temperature(temperature)
@@ -93,7 +93,7 @@ class AdaxGen3Climate(
         if self._attr_hvac_mode == HVACMode.HEAT:
             await self.adax.set_target_temperature(temperature)
 
-        self._attr_native_target_temperature = temperature
+        self._attr_target_temperature = temperature
         self.async_write_ha_state()
 
     def _update_hvac_attributes(self) -> None:
@@ -101,7 +101,7 @@ class AdaxGen3Climate(
             return
 
         data = self.coordinator.data
-        self._attr_native_current_temperature = data[
+        self._attr_current_temperature = data[
             "current_temperature"
         ]
 
@@ -110,12 +110,12 @@ class AdaxGen3Climate(
         if target == 0:
             self._attr_hvac_mode = HVACMode.OFF
             self._attr_icon = "mdi:radiator-off"
-            if self._attr_native_target_temperature is None:
-                self._attr_native_target_temperature = self._attr_min_temp
+            if self._attr_target_temperature is None:
+                self._attr_target_temperature = self._attr_min_temp
         else:
             self._attr_hvac_mode = HVACMode.HEAT
             self._attr_icon = "mdi:radiator"
-            self._attr_native_target_temperature = target
+            self._attr_target_temperature = target
 
     @callback
     def _handle_coordinator_update(self) -> None:
